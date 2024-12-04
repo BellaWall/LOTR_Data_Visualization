@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <style>
+        @font-face {
+            font-family: 'Ringbearer';
+            src: url('Ringbearer.ttf') format('truetype'); /* Ensure this file is in your project */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-image: url('background.webp'); /* Update this path to match where you saved your image */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Ringbearer', serif;
+            color: #1c177c;
+            text-shadow: 2px 2px #f1eded, -1px -1px #f1ebeb, 1px 1px #f4f2f2, -2px -2px #f8f2f2;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 2rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-family: Arial, sans-serif;
+            font-size: 1.2rem;
+            color: #fff; /* Ensure text is readable against the background */
+        }
+
+        a {
+            color: #2196F3; /* Link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            margin-bottom: 30px;
+        }
+
+        img {
+            display:block;
+            margin: 20px auto;
+            max-width: 50%;
+            height: auto;
+            max-height: 700px;
+        }
+
+        .video-container {
+            background-color: white;
+            padding: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Documentation Page</h1>
+    <div class="content">
+        <h2>Overview</h2>
+        <p>This documentation details the design process, rationale for design choices, and discoveries made through the Lord of the Rings data visualization project. The project comprises several visualizations: a bar chart showing the number of dialogue lines per character, word clouds for each character, a bubble chart illustrating the races, and an interactive map of Middle-earth.</p>
+    </div>
+
+    <div class="content">
+        <h2>Design Process</h2>
+        <h3>Initial Design</h3>
+        <p>The visualization design originated with brainstorming and sketching ideas. To begin, I first wanted to choose a dataset that actually contained data I would be interested in and enjoyed looking at, for doing my project over data I would want to study and expand upon would only make me more attentive to the visualization I would be designing. Thus, I decided to look on Kaggle for datasets about Lord of the Rings, which is my favorite movie franchise. After I found an acceptable dataset, my next objective was to create a comprehensive and engaging representation of the data from the Lord of the Rings movies using this dataset. Starting out, I devised a set of questions that I would focus on; these questions would be the basis for my visualizations, and would help guide me in the specific data I would want to showcase to my audience. Next, I created multiple initial sketches of possible visualizations for my website, including various chart types to represent different aspects of the data, such as bar charts, word clouds, bubble charts, and interactive maps. I also created an overall sketch of the interface and what that could potentially look like; where the charts could go, where descriptions would be in relation to these charts, and the order in which I would put my visualizations to best guide the user and follow their interests. Below are the sketches I drew up in deciding what my visualizations and interface would look like, as well as how I would arrange and display the data to answer my questions:</p>
+        
+        <h3>Sketches and Iterations</h3>
+        <p>Below are my initial sketches and iterations of my visualizations and interface layout.</p>
+        
+        <!-- Add your images here -->
+        <img src="sketch 1.jpg" alt="Sketch 1" style="width:75%; height:auto; margin-bottom:20px;">
+        <img src="sketch 2.jpg" alt="Sketch 2" style="width:75%; height:auto; margin-bottom:20px;">
+        <img src="sketch 3.jpg" alt="Sketch 3" style="width:75%; height:auto; margin-bottom:20px;">
+        <img src="sketch 4.jpg" alt="Sketch 3" style="width:75%; height:auto; margin-bottom:20px;">
+        <img src="sketch 5.jpg" alt="Sketch 3" style="width:75%; height:auto; margin-bottom:20px;">
+        <img src="sketch 6.jpg" alt="Sketch 3" style="width:75%; height:auto; margin-bottom:20px;">
+        
+
+        <h3>Bar Chart</h3>
+        <p>- My initial sketch considered displaying the number of dialogue lines per character, with the number of lines as one axis and the specific character names as another axis. </p>
+        <p>- Different layout options were explored, such as vertical and horizontal bar charts. In my sketch, I have a vertical bar chart drawn, but I also experimented with horizontal bar charts, stacked bar charts, and grouped bar charts.</p>
+        <p>- I wanted an interactive element to this bar chart, and played with the idea of the user being able to click on a specific bar for further data.</p>
+
+        <h3>Word Clouds</h3>
+        <p>- Sketched ideas included positioning word clouds either below or to the right of the bar chart. In my initial interface sketch, the word clouds are below the bar chart, but I also toyed with the idea of placing them next to the bar chart.</p>
+        <p>- The goal was to provide a dynamic way to explore the most frequently used words by each character. </p>
+        <p>- At first, I was going to have this be a separate visualization, hence the sketch being detached from the bar chart, but after contemplating how to make the word clouds interactive to the user, the idea popped into my mind of having the word clouds be toggled by users clicking on a certain character. As this concept materialized, I decided to eventually combine the bar chart and word cloud to be one giant and interactive visualization.</p>
+
+        <h3>Bubble Chart</h3>
+        <p>- Conceptualized a bubble chart to represent the races in the Lord of the Rings universe. Also entertained the idea of a heatmap, but figured color gradients are sometimes hard for users to see clearly and interpret correctly.</p>
+        <p>- Explored the idea of using bubble sizes to depict the number of characters in each race. I needed a way to clearly convey this important data aspect to the audience, though, so came up with the idea of making it interactive by having users hover over a bubble to see the exact population number. </p>
+
+        <h3>Interactive Map</h3>
+        <p>- The map was intended to highlight the realms and populations of Middle-earth. I looked up fictional maps of Middle-earth, and drew my sketch based upon the maps that appeared. </p>
+        <p>- My initial sketch included ideas for markers and tooltips to display detailed information when clicked upon by the user, which would contain the interactive element I am seeking for. Seen in the sketch are blue circles, which indicate which realms have valuable data corresponding to them, but I also entertained a few other ideas for the map markers, such as stars, pinpoints, and other shapes.</p>
+    </div>
+
+    <div class="content">
+        <h2>Rationale of Design Choices</h2>
+        <h3>Bar Chart</h3>
+        <p>•	Color: Used a consistent color (steel blue) to encode the number of dialogue lines for clarity and simplicity against a pink background, which was chosen after much deliberation. In the end, though, I decided that blue against a pink background can be a visually striking combination for several reasons. First, blue and pink are contrasting colors, which makes the blue bars stand out clearly against the pink background. This improves readability and helps viewers quickly interpret the data. Secondly, blue and pink can create a pleasing aesthetic when paired together. The coolness of blue balances the warmth of pink, making the chart more visually appealing.</p>
+        <p>•	Layout: Chose a vertical bar chart over the other bar chart options I came up with to ensure easy comparison of dialogue counts among characters. People are accustomed to seeing data presented in vertical bar charts, which is arguably the most common type of bar chart used when displaying data, so they can quickly grasp the information without needing additional explanation. Also, I wanted to make sure that the bar charts were ordered in descending order to enhance clarity and impact. This is done by allowing viewers to quickly identify the largest and smallest categories without having to scan the entire chart. Also, an organized chart looks cleaner and more professional, which improves overall readability.</p>
+        <p>•	Highlighting: Implemented bar highlighting on click to indicate the selected character, making it intuitive to identify which word cloud corresponds to which character. Highlighting a bar helps distinguish it from others, allowing users to look back to what character they had clicked on with ease and compare that character with other characters in the word cloud. Also, highlighting the bar provides immediate visual feedback, confirming to the user that their action (clicking) has been recognized and processed.</p>
+
+        <h3>Word Clouds</h3>
+        <p>•	Placement: Positioned the word clouds to the right of the bar chart, stacked vertically, to utilize screen space effectively and prevent horizontal scrolling. This was done for many specific reasons to enhance the effectiveness of my visualization. Bar charts provide quantitative data, while word clouds offer qualitative insights by highlighting the most frequently occurring words. Placing them side-by-side allows for a comprehensive understanding of the data from both perspectives. Positioning the word cloud to the right of the bar chart balances the visual layout. The left-to-right reading pattern naturally guides the viewer's eyes from the bar chart to the word cloud, making the information easy to digest. Then, the vertical stacking of word clouds ensures that each word is clearly visible and easy to read, without overlapping or cluttering the visual space. This arrangement makes efficient use of the available space, ensuring that both the bar chart and the word cloud are displayed prominently without one overshadowing the other.</p>
+        <p>•	Color Gradient: Applied a green-to-white gradient to the words, visually distinguishing word frequencies without overwhelming the viewer. White stands out against the pink background in a way that is not too harsh for the user or overwhelms the bar chart, and represents the words that are used most frequently in addition to the size of the words. As the words are used less and less, the words decrease in size and begin to take on a green color, which pairs nicely with pink but is also darker than the white color of the more frequent words. This was done to show how these words are “shadowed” by the lighter colored words, subconsciously helping the viewer’s eyes gravitate towards the brighter and more apparent words.</p>
+        <p>•	Borders and Titles: Added borders around the word clouds and included titles to clearly indicate which character's dialogue is being visualized. A title is important because it provides essential context, letting viewers immediately understand what character the word cloud represents. I also decided on including a border around the word cloud as well to clearly separate the word cloud from the other data visualizations and texts, reducing visual clutter and making my interface more aesthetic and pleasing to the eye.</p>
+
+        <h3>Bubble Chart</h3>
+        <p>•	Color and Size Encoding: Used bubble sizes to represent the number of characters in each race, making it easy to see which races are more prevalent. This has many advantages, such as larger bubbles naturally draw more attention, making it easy to spot which races have more characters. Also, the size of the bubble correlates with the quantity of characters, providing an intuitive way to understand the data at a glance without needing to read detailed numbers. The different colors also distinguish the bubbles from each other, helping the bubbles not blur together or get confusing in the eyes of the audience. </p>
+        <p>•	Interactive Elements: Enabled tooltips to provide additional details upon hovering over each bubble, enhancing interactivity and user engagement. I could have not made the bubble chart interactive, but interactive bubble charts can make the data exploration process more engaging and interactive for the user, increasing viewer action.</p>
+
+        <h3>Interactive Map</h3>
+        <p>•	Tooltips and Markers: Incorporated markers and tooltips to display detailed information about the realms of Middle-earth. This feature enriches the user experience by providing contextual information in an engaging manner. The markers are resemblant of map points, colored blue to stand out to the user. I decided to use this shape for my markers because the map point is a widely recognized icon used in digital maps to indicate a specific location. The teardrop shape with a circle in the middle makes it easy to spot and understand at a glance. This design is used by many mapping services like Google Maps, Apple Maps, and others to help users identify points of interest or navigate to destinations, which means that it is commonly used and thus familiar to my audience.</p>
+        <p>•	Interactive Elements: Upon clicking the map markers, a text box pops up that gives more information into that realm, such as how many characters live there, and the name of some of the most prominent characters from that region. This is done to give more information into the realms rather than simply showcasing where they are located on the map. The text boxes appear right above the map point that has been clicked so no confusion arises as to where the information is located. The text boxes appearing also do not shift or alter the map underneath it, so as to keep the visualization looking polished and professional.</p>
+
+        <h3>Interface Layout</h3>
+        <p>•	Organization: Every placement in my interface has reasoning as to why that specific location is best suited for that visualization, and why it is effective for the user. To begin, starting with a description of the interface sets the stage. It provides context, helping users understand what to expect and what the overall theme is about. This primes them for the detailed visualizations and data they are about to encounter. Then, the first visualization is placed. Placing the bar chart on the left side is a traditional format that users are accustomed to, making it easy to interpret. When reading, eyesight goes from left to right, so placing the interactive bar chart on the left and then the resulting word clouds from the interactive element on the right follows the users innate reading and comprehension abilities, enhancing the effectiveness and usability of my interface. Then, introducing a brief narrative or blurb between visualizations helps to maintain the flow. It allows users to digest the information from the first set of visualizations before moving on. This break can also provide additional context or insights, enhancing understanding. After, the bubble chart is placed. The bubble chart offers a visually distinct way to represent race populations. It stands out from the bar chart and word clouds, preventing visual fatigue and keeping the interface dynamic. Following is another blurb before the final visualization, which ensures that users are guided through the interface logically. It gives them a moment to reflect on the race population data before diving into the geographical context. And for the finale of my interface, I chose to end with the interactive map. Maps are inherently engaging, and interactivity allows users to explore the realm data in a hands-on manner. This keeps users engaged and encourages them to delve deeper into the information. The map's placement at the end ensures that users have all the necessary context from previous visualizations, enhancing their understanding of the geographical data. Thus, the interface is designed to guide users through a logical progression of information. It starts with a broad overview, moves through detailed quantitative and qualitative data, and ends with an interactive element that encourages exploration. The alternating pattern of visualizations and blurbs keeps the interface dynamic and engaging, preventing information overload and ensuring a smooth user experience.</p>
+        <p>•	Background Color: Upon much consideration, I opted for a light pink background for my visualization. I had a few reasons for this choice, which I believe helps my visualization be as effective as possible. First, pink backgrounds, especially when paired with the right text and visualization colors, can enhance contrast and readability. For instance, in my visualization dark blue bars are used for my first visualization, and on a soft pink background, this can be easy on the eyes and ensure that the data is clear and legible. Another reason why I chose pink is that different shades of pink can evoke various emotions. In my case, I chose a light pink, and lighter shades of pink are often associated with calmness, warmth, and positivity. This can create a welcoming and friendly atmosphere, which will only draw the user in more.</p>
+        <p>•	Reset button: In my first visualization, I added a reset button at the very bottom to clear out the selected characters in the bar chart and their corresponding word clouds. This idea was not present in my initial sketches, but was added as I was working on the interface itself. This was done for multiple reasons. First, it allows the user to clearly select what characters they want to look at and compare. When there is no option to reset the word clouds, the user would at first be unaware as to which word cloud would be replaced b the third click. If they meant for one character to be replaced by another, but the mechanics of the visualization code do not follow this subconscious idea by the audience, confusion and frustration may occur. This only hinders the effectiveness of my visualization. Also, adding a reset button allows the audience to clear up the visualization page and interface, decluttering the page before they keep scrolling downwards.</p>
+    </div>
+
+    <div class="content">
+        <h2>Discoveries and Insights</h2>
+        <h3>Character Dialogue</h3>
+        <p>o	Finding: The bar chart revealed that some characters, like Frodo and Sam, have significantly more dialogue lines compared to others. This makes sense, as Frodo is the main character in the Lord of the Rings trilogy, and Sam is his best friend that accompanies him throughout his entire journey. Thus, to answer my question, the characters that have the most dialogue are Frodo and Sam.</p>
+        <img src="vis 1.jpg" alt="Sketch 1" style="width:75%; height:auto; margin-bottom:20px;">
+
+        <h3>Frequent Words</h3>
+        <p>o	Finding: The word clouds showed that certain words are frequently used by specific characters, reflecting their unique dialogue styles, interests, and friendships. To answer my related questions, I examined in my example the word clouds between Frodo and Pippin. In both word clouds, their most frequent word was the name of their best friend; Frodo’s most frequent word spoken was “Sam,” while Pippins was “Merry.” This shows that both characters place high importance on friendship, highlighting a specific aspect of their character. This is one comparison that both characters share; their significant value of companionship. As for a discourse that contrasts between the two characters,  Frodo speaks a lot about himself, with a lot of  “I’m” and “I’s” present in his word cloud. Pippin, on the other hand, speaks a lot about others, as seen by his use of words like “he’s” and a lot of “Gandalf.” This shows a large difference between their personalities and patters of speech; Frodo is more independent, and capable of getting things done himself. Pippin, on the other hand, is more dependent on other characters, and is not as independent or able to do things on his own.</p>
+        <img src="vis 2.jpg" alt="Sketch 1" style="width:75%; height:auto; margin-bottom:20px;">
+
+        <h3>Races Representation</h3>
+        <p>o	Finding: The bubble chart highlighted that certain races, like men and hobbits, have a larger representation of characters in the movies. This is seen by the larger bubbles that encompass these race names. Thus, to answer my question, the races that are most predominant in Middle-earth are men, then hobbits, and then elves.</p>
+        <img src="vis 3.jpg" alt="Sketch 1" style="width:75%; height:auto; margin-bottom:20px;">
+
+        <h3>Geographical Distribution</h3>
+        <p>o	Finding: The interactive map provided insights into the geographical distribution and population sizes of different realms in Middle-earth, allowing us to see how the populations of the different realms located in the Middle-earth compare with one another. From my visualization, I can see that Gondor has the highest population in Middle-earth, while Rivendell has the lowest.</p>
+        <img src="vis 4.jpg" alt="Sketch 1" style="width:75%; height:auto; margin-bottom:20px;">
+    </div>
+
+    <div class="content">
+        <h2>Final Thoughts</h2>
+        <p>Thus, my Lord of the Rings data visualization project effectively uses various chart types to provide a comprehensive and engaging representation of the data. The design choices, driven by clarity and interactivity, have enabled the discovery of meaningful insights and enhanced the overall user experience. I drew up initial sketches, and then implemented these designs into a working and effective interface, making design changes and new decisions as I went along in creating the interface. In the end, an aesthetic website look was achieved that accurately imported data from a dataset and used interactive and engaging visualizations to transport my viewers into the word of The Lord of the Rings. I hope you enjoy looking through and exploring the different types of data as much as I enjoyed creating this final project!</p>
+        <p>Below is an interactive video walking through my visualization with narration.</p>
+            <video width="840" height="560" controls>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+        <div>
+    </div>
+
+    <p><a href="index.html">Go back to the main page</a></p>
+</body>
+
+</html>
+
+

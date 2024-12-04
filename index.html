@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lord of the Rings Data Visualization</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.js"></script> <!-- Include d3-cloud library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
+    <style>
+        @font-face {
+            font-family: 'Ringbearer';
+            src: url('Ringbearer.ttf') format('truetype'); /* Make sure to upload the Ringbearer.ttf file to your project */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-image: url('background.webp'); /* Update this path to match where you saved your image */
+            background-size: cover;
+            background-position: center;
+            color: #fff; /* Ensure text is readable against the background */
+            text-align: center; /* Center the text */
+        }
+
+        h1 {
+            font-family: 'Ringbearer', serif;
+            font-size: 4rem;
+            font-weight: bold;
+            color: #1c177c;
+            text-shadow: 2px 2px #f1eded, -1px -1px #f1ebeb, 1px 1px #f4f2f2, -2px -2px #f8f2f2;
+            margin-bottom: 20px;
+        }
+
+        #container {
+            display: flex;
+            justify-content: space-around; /* Add space between the chart and word cloud */
+            align-items: flex-start; /* Align items at the top */
+        }
+
+        .chart-container,
+        .word-cloud-container {
+            flex: 1;
+            padding: 10px;
+        }
+
+        .word-cloud-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .word-cloud-container svg {
+            width: 100%;
+            height: 350px; /* Adjusted height for better visualization */
+            border: 1px solid black;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        .info-blurb,
+        .bubble-blurb,
+        .map-blurb {
+            position: relative;
+            background-color: white; /* White background for blurbs */
+            border-left: 6px solid #2196F3;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #000; /* Text color inside the blurbs */
+            display: inline-block; /* Center the blurbs */
+            text-align: left; /* Keep text inside the blurbs aligned to the left */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Black shadow */
+            border-radius: 8px; /* Round corners */
+            transition: transform 0.3s; /* Smooth transition for pop-out effect */
+        }
+
+        .info-blurb:hover,
+        .bubble-blurb:hover,
+        .map-blurb:hover {
+            transform: scale(1.01); /* Pop-out effect on hover */
+        }
+
+        .bubble-chart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 600px;
+        }
+
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            pointer-events: none;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 600px;
+            margin-bottom: 20px;
+            background-image: url('map.jpg'); /* Path to the downloaded image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            border-radius: 8px; /* Round corners */
+        }
+
+        /* Ensure popups can go past the leaflet map margin */
+        .leaflet-container {
+            overflow: visible !important;
+        }
+
+        .downward-popup .leaflet-popup-content-wrapper {
+            transform: translateY(-100%);
+        }
+
+        .downward-popup .leaflet-popup-tip {
+            transform: rotate(180deg);
+            bottom: -8px;
+            top: auto;
+        }
+
+        footer {
+            font-family: 'Ringbearer', serif;
+            font-size: 1.2rem;
+            color: #050400;
+            text-shadow: 1px 1px #f1efef;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #2196F3;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+        }
+
+        button:hover {
+            background-color: #005BB5; /* Darker blue on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lord of the Rings Data Visualization</h1>
+    <div class="info-blurb">
+        <p>
+            Welcome to the World of Middle-earth! Get ready to embark on an immersive journey through the intricate world of J.R.R. Tolkien’s Middle-earth. This interactive visualization offers a deep dive into the fascinating realm of "The Lord of the Rings," where you can explore key characters, races, and locations like never before. Whether you're a seasoned fan or a curious newcomer, prepare to uncover hidden details and make connections in this epic saga.
+        </p>
+    </div>
+    <div class="info-blurb">
+        <p>
+            Our journey begins with a bar chart showcasing the number of dialogue lines spoken by various characters. Click on any bar to reveal a word cloud of that character's most frequently used words. This feature allows for an in-depth look at the unique linguistic patterns of your favorite Middle-earth denizens. Additionally, you can click on two bars simultaneously to compare the dialogue styles of two characters side by side.
+        </p>
+    </div>
+    <div id="container">
+        <div id="chart" class="chart-container"></div> <!-- This is where your bar chart will appear -->
+        <div class="word-cloud-container">
+            <svg id="word-cloud-top"></svg> <!-- Top word cloud -->
+            <svg id="word-cloud-bottom"></svg> <!-- Bottom word cloud -->
+        </div>
+    </div>
+    <!-- Add reset button -->
+    <button id="reset-button">Reset Word Clouds</button>
+    <!-- Bubble Chart Blurb -->
+    <div class="bubble-blurb">
+        <p>
+            The second part presents a bubble chart depicting the various races inhabiting Middle-earth. The size of each bubble corresponds to the population of that race. This visualization provides a clear and engaging overview of the racial diversity within Tolkien's universe, highlighting the prominence and distribution of different races like Elves, Dwarves, Hobbits, and more.
+        </p>
+    </div>
+    <div class="bubble-chart" id="bubble-chart"></div> <!-- This is where your bubble chart will appear -->
+    <div id="tooltip" class="tooltip" style="opacity:0;"></div> <!-- Tooltip for bubble chart -->
+    <!-- Map Blurb -->
+    <div class="map-blurb">
+        <p>
+            Finally, we have an interactive map that brings the various realms of Middle-earth to life. Click the blue markers to explore the realms of Middle-earth from the comfort of your screen. Navigate through the Shire, Rivendell, and beyond, uncovering the homes and hideouts of your favorite characters!
+        </p>
+    </div>
+    <div class="map-container" id="map"></div> <!-- This is where your map will appear -->
+    <footer>
+        <p>&copy; 2024 Lord of the Rings Data Visualization | Designed by Isabella Wall | <a href="second-page.html">Click here to view the documentation page</a>
+        </p>
+    </footer>
+    <script src="app.js"></script> <!-- Link to your JavaScript file -->
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
